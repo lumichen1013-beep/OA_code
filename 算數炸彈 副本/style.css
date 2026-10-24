@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+    color: #555555;
+    font-family: Arial;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#gameover {
+    color: #ec6d67;
+    display: none;
+}
+
+#bar {
+    width: 100%;
+    height: 10px;
+    background-color: #f1c40f;
+    margin-bottom: 60px;
+}
+
+button {
+    padding: .5rem 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+#btn-yes {
+    color: #2cbeff;
+    border: 3px solid #2cbeff;
+}
+
+#btn-yes:hover {
+    color: #fff;
+    background-color: #2cbeff;
+}
+
+#btn-no {
+    color: #ec6d67;
+    border: 3px solid #ec6d67;
+}
+
+#btn-no:hover {
+    color: #fff;
+    background-color: #ec6d67;
+}
+

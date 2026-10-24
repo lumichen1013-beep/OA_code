@@ -1,0 +1,68 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    color: #dc685a;
+}
+
+button {
+    padding: 10px;
+    border-width: 0px;
+    border-radius: 5px;
+    margin: 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ecaf4f;
+}
+
+/* 設定格子大小，並使他置中 */
+.grid {
+    width: 330px;
+    height: 330px;
+    margin: auto;
+    /* border: 3px solid blue; */
+}
+
+.grid div {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px #999;
+    box-shadow: 0px 0px 10px #999;
+    border-radius: 10px;
+    
+    /*將div設為正方形大小*/
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+
+    
+    /*透過浮動，使div不會直接換行*/
+    float: left;
+
+    /*設定行高跟正方形一樣高，使字的可以在格子上下位置的中間*/
+    line-height: 100px;
+
+    /*使指標碰到格子時，變換樣式*/
+
+    
+}
+ 
+
+
+.gray{
+    background-color: #555555;
+
+}
+.gray:hover {
+    background-color: #333333;
+}
+
+.orange {
+    background-color: #ecaf4f ;
+}
+
+.red {
+    background-color: #dc685a ;
+}

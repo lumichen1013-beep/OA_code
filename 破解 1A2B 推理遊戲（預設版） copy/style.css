@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    background-color: #25313e;
+    font-family: Arial;
+}
+
+h1 {
+    color: #607489;
+    margin: 20px;
+}
+
+textarea {
+    width: 350px;
+    height: 350px;
+    padding: 15px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    color: #ccc;
+    box-shadow: 0 0.25rem 0.5rem #12181e;
+    background-color: #191919;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Monospace;
+}
+
+button {
+    padding: 10px;
+    color: #eee;
+    margin: 10px 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 0.25rem 0.5rem #12181e;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button.red {
+    background-color: #fc4048;
+}
+
+button.yellow {
+    background-color: #fd9409;
+}
+
+button.green {
+    background-color: #1fc3b2;
+}

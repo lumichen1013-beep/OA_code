@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        <div class="box panel">
+            <input class="box" type="number" min="0" max="9" v-model="x" @change="change">層
+            <input class="box" type="number" min="0" max="9" v-model="y" @change="change">格
+            <input class="box" type="number" min="0" max="9" v-model="z" @change="change">本
+            <button class="box" v-if="isFocus" @click="clear">清除</button>
+            <p>{{target}}</p>
+        </div>
+        
+        <div class="grid" :class="{dark: isFocus}">
+            <div ref="offset" :style="offset()">
+                <div class="row" v-for="(row, x) in grid">
+                    <div class="col" v-for="(col, y) in row">
+                        <div class="book" v-for="(book, z) in col" :class="bookClass(x, y, z)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

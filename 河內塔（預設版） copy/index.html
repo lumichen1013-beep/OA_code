@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        
+        <div class="row">
+            <div
+                v-for="disk in disks"
+                id="disk.value"
+                :style="diskStyle(disk)"
+                class="disk"
+                :draggable="isTop(disk)"
+                @dragstart="dragstart(disk)"
+            ></div>
+            <div class="col col-a" @drop="ondrop('a')" @dragover="allowDrop"></div>
+            <div class="col col-b" @drop="ondrop('b')" @dragover="allowDrop"></div>
+            <div class="col col-c" @drop="ondrop('c')" @dragover="allowDrop"></div>
+        </div>
+        
+        <div class="footer">
+            <p>總共移動了<span class="highlight"> {{count}} </span>次</p>
+            <input @change="start" v-model="size" type="number" min="1" max="10"/>
+            <button @click="start">重新開始</button>
+            <button @click="resolve">自動破解</button>
+        </div>
+
+    </div>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

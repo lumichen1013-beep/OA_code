@@ -1,0 +1,71 @@
+body {
+    font-size: 1rem;
+    padding: 0px 30px;
+    min-height: 100vh;
+    background-image: linear-gradient(#ff6161,#ff768c);
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+#input {
+    outline: none;
+    width: 300px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    display: inline-block;
+}
+
+#create {
+    padding: 5px 0px;
+    color: #369eff;
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#deleteAll {
+    font-size: 0.9rem;
+    display: inline-block;
+    color: #ff768c;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.box {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 1px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0px 5px 2px rgba(0, 0, 0, .1);
+}
+
+.item {
+    color: #555;
+    padding: 10px 0px;
+    border-bottom: 1px solid #eee;
+}
+
+.update, .delete {
+    float: right;
+    padding: 0px 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.update {
+    color: #369eff;
+}
+.delete {
+    color: #ff768c;
+}
+.delete:hover, .update:hover {
+    opacity: 1;
+}
+

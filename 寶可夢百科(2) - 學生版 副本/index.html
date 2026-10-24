@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+    <title>寶可夢百科
+    </title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" charset="utf-8"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img class="logo" src="./logo.png"/>
+    
+    <div id="filter">
+        <button class="bg-black" id="read_all">全部</button>
+        <button class="bg-orange" id="read_by_index">編號查詢</button>
+        <button class="bg-orange" id="read_by_name">名稱查詢</button>
+        <button class="bg-orange" id="read_by_attr">屬性查詢</button>
+        <br/>
+        <button class="bg-blue" id="order_by_weight_desc">體重大排到小</button>
+        <button class="bg-blue" id="order_by_weight_asc">體重小排到大</button>
+        <button class="bg-blue" id="order_by_height_desc">身高大排到小</button>
+        <button class="bg-blue" id="order_by_height_asc">身高小排到大</button>
+        <br/>
+        <button class="bg-green" id="create">新增</button>
+        <button class="bg-red" id="delete">刪除</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>寶可夢</th>
+                <th>名稱</th>
+                <th>體重</th>
+                <th>身高</th>
+                <th>屬性</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 三筆假資料提供複製貼上，專案完整完成後可刪除 -->
+            <tr>
+                <td>001</td>
+                <td><div class="icon icon-001"></div></td>
+                <td>妙蛙種子</td>
+                <td>6.9kg</td>
+                <td>0.7m</td>
+                <td>草</td>
+            </tr>
+        
+            <tr>
+                <td>002</td>
+                <td><div class="icon icon-002"></div></td>
+                <td>妙蛙草</td>
+                <td>13kg</td>
+                <td>1m</td>
+                <td>草</td>
+            </tr>
+        
+            <tr>
+                <td>003</td>
+                <td><div class="icon icon-003"></div></td>
+                <td>妙蛙花</td>
+                <td>100kg</td>
+                <td>2m</td>
+                <td>草</td>
+            </tr>
+        </tbody>
+    </table>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

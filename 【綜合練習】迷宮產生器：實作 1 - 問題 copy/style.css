@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    padding: 10px;
+}
+
+p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#log {
+    color: #03F501;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#code {
+    color: #03F501;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    overflow-x: scroll;
+}
+
+#question {
+    height: 130px;
+    border: 1px solid white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+#screenshot {
+    border: 1px solid white;
+    padding: 20px;
+    margin-bottom: 10px;
+}

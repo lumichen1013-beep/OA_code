@@ -1,0 +1,106 @@
+body {
+    text-align: center;
+    color: #555;
+    background-color: #f5f5f5;
+}
+
+.red {
+    color: #f53d2d;
+}
+
+.banner {
+    padding: 45px 30px 0px 30px;
+    color: #fff;
+    background: linear-gradient(-180deg, #f53d2d, #f63);
+}
+
+.container {
+    padding: 20px;
+}
+
+/* 分頁樣式 */
+.tab {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+}
+.tab.active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 商品列表 */
+#prodPage {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 購物車、訂單資訊、管理後台 */
+#cartPage, #infoPage, #adminPage {
+    display: none;
+    max-width: 800px;
+    padding: 30px;
+    margin: auto;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+/* 輸入框樣式 */
+.fancy-input {
+    outline: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 15px auto;
+    font-size: 1rem;
+}
+.fancy-input:focus {
+    border: 1px solid #f63;
+}
+
+/* 按鈕框樣式 */
+.fancy-button {
+    padding: 5px 15px;
+    border-width: 0;
+    color: #fff;
+    background-color: #f63;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.fancy-button:hover {
+    background-color: #e52;
+}
+
+/* 商品樣式 */
+.prod {
+    width: 140px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+.screenshot {
+    width: 80px;
+    height: 80px;
+}
+
+/* 表格樣式 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  word-wrap: break-word;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

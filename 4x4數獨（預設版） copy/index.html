@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="sudoku">
+        <h1>Sudoku</h1>
+        <div class="game">
+            <div class="grid">
+                <div v-for="row, y in grid" class="row">
+                    <div v-for="col, x in row" class="col">
+                        <input
+                            v-model.number="grid[y][x]"
+                            @focus="onfocus(y, x)"
+                            @focusout="onfocusout(y, x)"
+                            :disabled="originGrid[y][x] != 0"
+                            :style="textColor(y, x)"
+                        >
+                    </div>
+                </div>
+            </div>
+           <div class="vertical">
+               <div v-for="i in 4">
+                   <div v-show="v_check(i - 1)" class="active"></div>
+               </div>
+           </div>
+           <div class="horizontal">
+               <div v-for="i in 4">
+                   <div v-show="h_check(i - 1)" class="active"></div>
+               </div>
+           </div>
+            <div class="blocks">
+                <div v-for="i in 4">
+                    <div v-show="b_check(i - 1)" class="active"></div>
+                </div>
+            </div>
+        </div>
+        <p v-if="isWin" class="status">恭喜你，獲得勝利了！</p>
+        <button @click="newGame">新遊戲</button>
+        <button @click="resolve">破解</button>
+    </div>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

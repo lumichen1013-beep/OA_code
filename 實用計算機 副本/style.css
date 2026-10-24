@@ -1,0 +1,69 @@
+body {
+    background-color: black;
+    text-align: center;
+    padding: 100px;
+
+}
+
+#app {
+    width: 300px;
+    height: 400px;
+    /*可使margin自動抓一半，但需要有設定此元件大小*/
+    margin: auto;
+}
+
+p {
+    color: #fff;
+    text-align: right;
+    font-size: 40px;
+    
+    height: 60px;
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    /* 一顆按鈕：寬70px + 邊寬5px = 75px */
+    /* 一排按鈕：75px * 4 = 300px */
+    width: 70px;
+    height: 70px;
+
+    border-width: 5px;
+    border-radius: 50%;
+    border-color: black;
+
+    color: #fff;
+    font-size: 20px;
+
+    /* 去除點擊時外圍的藍色框框，與border不同處於outline，border並不佔空間 */
+    /* outline: none; */
+}
+
+.bg-orange {
+    background-color: orange;
+}
+.bg-light {
+    background-color: #777;
+}
+.bg-gray {
+    background-color: #333;
+}
+
+/* 以上為預設程式碼 */
+
+button:active{
+    transform:scale(0.9,0.9)
+}
+
+.bg-orange:hover{
+    background-color: #ffdab9;
+}
+.bg-gray:hover{
+    background-color: #666;
+}
+.bg-light:hover{
+    background-color: #aaa;
+}
+
+
+

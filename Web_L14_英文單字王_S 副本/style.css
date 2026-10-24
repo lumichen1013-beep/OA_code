@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+}
+
+button {
+    display: block;
+    width: 80vw;
+    padding: 5px 10px;
+    border-width: 0px;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-size: 25px;
+    color: white;
+}
+
+.blue {
+    background-color: #007bff;
+}
+.blue:hover {
+    background-color: #005bdf;
+}
+.red {
+    background-color: #dc3545;
+}
+.red:hover {
+    background-color: #bc1525;
+}
+.green {
+    background-color: #28a745;
+}
+.green:hover {
+    background-color: #088725;
+}
+.gold {
+    background-color: #ffc107;
+}
+.gold:hover {
+    background-color: #dfa107;
+}
+

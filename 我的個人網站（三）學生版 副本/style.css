@@ -1,0 +1,77 @@
+h1 {
+    color: #4789aa;
+    text-align: center;
+}
+
+li {
+    color: green;
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 20px;
+}
+
+#blue {
+    color: blue;
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 20px;
+}
+.blue{
+    background-color:#ccd5ff;
+}
+.lightblue{
+    background-color:#cce6ff;
+}
+
+.red {
+    color: red;
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 20px;
+}
+
+.bgyellow {
+    background-color: yellow;
+}
+.secret{
+    display: none;
+}
+
+button{
+    border: 3px solid red;
+    border-radius: 6px;
+    
+}
+
+#phone {
+    font-family: Comic Sans MS;
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+}
+
+#intro {
+    font-family: Comic Sans MS;
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 20px;
+}
+
+body {
+    background-color: lightblue;
+}
+table {
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px;
+    border-collapse: collapse;
+}
+th{
+  background-color:blue; 
+  color:white;
+}

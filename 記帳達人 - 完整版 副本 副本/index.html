@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>記帳本</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <select id="type">
+            <option value="食物"> 🍖 食物 </option>
+            <option value="衣服"> 👕 衣服 </option>
+            <option value="生活"> 🏠 生活 </option>
+            <option value="交通"> 🚌 交通 </option>
+            <option value="學習"> 📖 學習 </option>
+            <option value="娛樂"> 🎮 娛樂 </option>
+        </select>
+        <input type="date" id="date">
+        <input type="number" id="cost" placeholder="價格">
+        <input type="text" id="note" placeholder="註記">
+        <button id="create">新增</button>
+    </div>
+    
+    <!-- 總和 -->
+    <h1>
+        總和 <span id="sum">325</span> 元
+    </h1>
+    
+    <!-- 分類 -->
+    <div>
+        <span class="icon filter" data-type="食物"> 🍖 </span>
+        <span class="icon filter" data-type="衣服"> 👕 </span>
+        <span class="icon filter" data-type="生活"> 🏠 </span>
+        <span class="icon filter" data-type="交通"> 🚌 </span>
+        <span class="icon filter" data-type="學習"> 📖 </span>
+        <span class="icon filter" data-type="娛樂"> 🎮 </span>
+    </div>
+    
+    <!-- 表格 -->
+    <table>
+        <thead>
+            <tr>
+                <th>圖示</th>
+                <th>種類</th>
+                <th>日期</th>
+                <th>花費</th>
+                <th>註記</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 用來複製使用的範例資料，完成專案後即可移除 -->
+            <tr>
+                <td>🍖</td>
+                <td>食物</td>
+                <td>2019-01-01</td>
+                <td>65元</td>
+                <td>早餐</td>
+                <td><button class = "del">刪除</button></td>
+            </tr>
+            <tr>
+                <td>🚌</td>
+                <td>交通</td>
+                <td>2019-01-01</td>
+                <td>20元</td>
+                <td>捷運</td>
+            </tr>
+            <tr>
+                <td>🍖</td>
+                <td>食物</td>
+                <td>2019-01-01</td>
+                <td>80元</td>
+                <td>午餐</td>
+            </tr>
+            <tr>
+                <td>🍖</td>
+                <td>食物</td>
+                <td>2019-01-01</td>
+                <td>110元</td>
+                <td>晚餐</td>
+            </tr>
+            <tr>
+                <td>🏠</td>
+                <td>生活</td>
+                <td>2019-01-01</td>
+                <td>50元</td>
+                <td>文具</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id='bumb'>💣</button>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

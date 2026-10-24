@@ -1,0 +1,101 @@
+h1{
+    color:red;
+    border-style: dotted;
+    border-width: thick;
+    background-color:#ffcccc;
+    text-align:center;
+    margin: 20px;
+}
+h2{
+    background-color:lightblue;
+    border-left: 6px solid blue;
+    margin: 20px;
+}
+li{
+    background-color:#ffcccc;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 5px;
+    color:green;
+    margin: 10px;
+}
+p{
+    background-color:#ffcccc;
+}
+table{
+    background-color:#cce6ff;
+    border: 2px solid blue;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px;
+    width: 80%;
+}
+th{
+  background-color:#99aaff; 
+  color:white;
+}
+.cute {
+    color:red;
+}
+.bold {
+    font-weight: bold;
+}
+.bgyellow{
+    background-color:#f2fe9a;
+    border: 2px solid yellow;
+    border-radius: 5px;
+    padding: 5px;
+    
+    
+}
+.blue{
+    background-color:#ccd5ff;
+}
+.lightblue{
+    background-color:#cce6ff;
+}
+.secret{
+    display: none;
+}
+#button{
+    border: 3px solid red;
+    border-radius: 12px;
+    font-size: 20px;
+}
+#intro{
+    background-color:#ffcccc;
+    border: 3px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 20px;
+}
+
+#yt{
+    background-color:#ffcccc;
+    border: 5px solid red;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#little_game{
+    background-color:#f6ffb3;
+    border: 5px solid yellow;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 25px;
+}
+
+#phone{
+    background-color:lightblue;
+    border-left: 6px solid blue;
+    text-align:right;
+}
+#blue{
+    color:blue;
+}
+#picture{
+    margin: 30px;
+}
+body{
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20220623/pngtree-fun-video-game-pixel-background-geek-theme-nerdy-photo-image_24904542.jpg);
+}

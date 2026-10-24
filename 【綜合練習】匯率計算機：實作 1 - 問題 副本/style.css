@@ -1,0 +1,38 @@
+.container {
+    width: 300px;
+    margin: auto;
+    color: #555555;
+}
+
+.form-control {
+    position: relative;
+    margin-top: 40px;
+}
+
+span {
+    color: #777777;
+    font-size: 14px;
+}
+
+input {
+    height: 40px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: right;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+input:focus {
+    border-color: blue;
+}
+
+input:focus + span {
+    color: blue;
+}
+
+
+
+
+

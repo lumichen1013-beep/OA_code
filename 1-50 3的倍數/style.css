@@ -1,0 +1,21 @@
+/* 設定整個頁面內容水平置中、內寬為 30 像素：*/
+body {
+    text-align: center;
+    padding: 30px;
+    background-image: url('ec1a67e9583bc746ca902eae6bfa357e.gif');
+}
+
+/* 設定圖片的寬度為銀幕一半寬 */
+img {    
+    max-width: 35%; 
+}
+
+/* 設定文字的顏色為淡黑色 */
+p, button {
+    color: white;
+    background-color: orange;
+    border-radius: 12px;
+    text-shadow: 0px 0px 10px white;
+    font-size: 25px;
+    border: 5px solid #e69138;
+}

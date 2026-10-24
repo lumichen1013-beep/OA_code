@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    padding: 30px;
+}
+
+img {
+    max-width: 200px;
+}
+
+/* 按鈕金色樣式 */
+button {
+    outline: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 0;
+    border-bottom: 6px solid #e6a772;
+    border-radius: 5px;
+    background-color: #f9d53e;
+}
+
+/* 按鈕灰色樣式 */
+button:active, .active {
+    border-bottom-width: 3px;
+    transform: translateY(3px);
+    background-color: #aaa;
+    border-bottom-color: #777;
+}
+
+/* 隱藏 */
+.hide {
+    display: none;
+}
+
+/* 表格樣式 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #eee;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

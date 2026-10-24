@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>1A2B 推理遊戲</h1>
+    <textarea id="textarea" disabled autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+========== 遊戲規則說明 ==========
+
+密碼是由 4 個不同的數字組成
+每次猜完，電腦會返回 A、B 兩個數字結果
+A 表示數字猜對 且 位置正確
+B 表示數字猜對 但 位置錯誤
+    </textarea>
+    <br/>
+    <button id="start" class="green">開始新的遊戲</button>
+    <button id="guess" class="yellow">猜密碼</button>
+    <button id="crack" class="red">自動破解</button>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* 設定整個頁面內容水平置中、內寬為 30 像素：*/
+body {
+    text-align: center;
+    padding: 30px;
+    background-color:gray;
+    background-image: url(https://cdn.kikinote.net/gallery/kikinote/487a6d6f0e170096ef883a4891dbbeb3.jpeg);
+}
+
+/* 設定圖片的寬度為銀幕一半寬 */
+img {    
+    max-width: 50%; 
+}
+
+h1{
+    color: white;
+    font-size: 30px;
+    margin: 0px auto;
+    background-color:black;
+    border: 5px  solid white;
+    box-shadow: 3px 3px 15px white;
+    border-radius: 2000px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    text-shadow: 0px 0px 10px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+button{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    background-color:gray;
+    border: 10px  ;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+    width: 520px;
+    text-shadow: 0px 0px 10px white;
+}

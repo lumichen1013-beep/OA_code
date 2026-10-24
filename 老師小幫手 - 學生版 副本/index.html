@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="teacher.png"/>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th id="orderByCh">國文</th>
+                <th id="orderByEn">英文</th>
+                <th id="orderByMath">數學</th>
+                <th id="orderBySum">總成績</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 這是用來複製的範例，專案完成後即可刪除 -->    
+            <tr>
+                <td>束凱文</td>
+                <td>46</td>
+                <td>88</td>
+                <td>91</td>
+                <td>225</td>
+                <td class="delete" data-id="1">刪除</td>
+            </tr>
+            <tr>
+                <td>劉大偉</td>
+                <td>95</td>
+                <td>99</td>
+                <td>85</td>
+                <td>279</td>
+                <td class="delete" data-id="2">刪除</td>
+            </tr>
+            <tr>
+                <td>何小妹</td>
+                <td>75</td>
+                <td>100</td>
+                <td>68</td>
+                <td>243</td>
+                <td class="delete" data-id="3">刪除</td>
+            </tr>
+            <tr>
+                <td>邱小玉</td>
+                <td>97</td>
+                <td>81</td>
+                <td>35</td>
+                <td>213</td>
+                <td class="delete" data-id="4">刪除</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="create">新增成績</button>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* 
+ * 為了降低 HTML 閱讀壓力盡量減少 class 命名數量
+ * 並直接針對元素名稱或 ID 來調整樣式
+ * 因專案當純命名也盡可能簡短
+ * 不針對 CSS 與 JS 用途去區分 class 命名
+ */
+body {
+    background: #D7423C;
+    padding: 30px;
+    text-align: center;
+}
+
+h1, #start, #next {
+    color: #fff;
+}
+
+#start, #next {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#result, #next {
+    display: none;
+}
+#counter {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#counter, #content {
+    margin-top: 0;
+    
+}
+
+button {
+    font-size: 1rem;
+}
+
+.card {
+    max-width: 330px;
+    padding: 30px;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    color: #2d7180;
+    background-color: #fff;
+    box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.option {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+    border: 1px solid #5a9aa8;
+    border-radius: 5px;
+    color: #2d7180;
+    cursor: pointer;
+}
+
+.red {
+    color: #fff;
+    border-color: #F60F4C;
+    background-color: #F60F4C;
+}
+
+.green {
+    color: #fff;
+    border-color: #00C46D;
+    background-color: #00C46D;
+}

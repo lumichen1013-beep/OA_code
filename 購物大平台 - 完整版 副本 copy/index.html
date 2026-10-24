@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="banner">
+        <h1>購物大平台</h1>
+        <span id="showProdPage" class="tab active">商品列表</span>
+        <span id="showCartPage" class="tab">購物車</span>
+        <span id="showInfoPage" class="tab">訂單資訊</span>
+        <span id="showAdminPage" class="tab">管理後台</span>
+    </div>
+    
+    <div class="container">
+
+        <!--======================商品列表======================-->
+        <div id="prodPage" class="page">
+            <div class="prod card">
+                <img class="screenshot" src="a.jpeg"/><br/>
+                <strong>哈利波特 - 全新典藏版</strong><br/>
+                <del>$1850</del><br>
+                <span class="red">$1400</span><br/>
+                <button class="fancy-button buy" data-name="哈利波特 - 全新典藏版" data-price="1400">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="b.jpeg"/><br/>
+                <strong>超輕薄遊戲繪圖筆記型電腦</strong><br/>
+                <del>$25100</del><br>
+                <span class="red">$23100</span><br/>
+                <button class="fancy-button buy" data-name="超輕薄遊戲繪圖筆記型電腦" data-price="23100">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="c.jpeg"/><br/>
+                <strong>復古款情侶後背包</strong><br/>
+                <del>$1200</del><br>
+                <span class="red">$888</span><br/>
+                <button class="fancy-button buy" data-name="復古款情侶後背包" data-price="888">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="d.jpeg"/><br/>
+                <strong>簡約質感短夾</strong><br/>
+                <del>$399</del><br>
+                <span class="red">$299</span><br/>
+                <button class="fancy-button buy" data-name="簡約質感短夾" data-price="299">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="e.jpeg"/><br/>
+                <strong>23寸單板桃花心木烏克麗麗</strong><br/>
+                <del>$2100</del><br>
+                <span class="red">$1800</span><br/>
+                <button class="fancy-button buy" data-name="23寸單板桃花心木烏克麗麗" data-price="1800">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="f.jpeg"/><br/>
+                <strong>小熊餅乾巧克力風味</strong><br/>
+                <del>$28</del><br>
+                <span class="red">$25</span><br/>
+                <button class="fancy-button buy" data-name="小熊餅乾巧克力風味" data-price="25">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="g.jpeg"/><br/>
+                <strong>五月花新柔韌抽取式衛生紙110抽</strong><br/>
+                <del>$750</del><br>
+                <span class="red">$685</span><br/>
+                <button class="fancy-button buy" data-name="五月花新柔韌抽取式衛生紙110抽" data-price="685">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="h.jpeg"/><br/>
+                <strong>炫彩運動水壺500ML大容量</strong><br/>
+                <del>$329</del><br>
+                <span class="red">$259</span><br/>
+                <button class="fancy-button buy" data-name="炫彩運動水壺500ML大容量" data-price="259">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="i.jpeg"/><br/>
+                <strong>[9折]深入淺出JavaScript程式設計</strong><br/>
+                <del>$1000</del><br>
+                <span class="red">$900</span><br/>
+                <button class="fancy-button buy" data-name="[9折]深入淺出JavaScript程式設計" data-price="900">購買</button>
+            </div>
+            <div class="prod card">
+                <img class="screenshot" src="j.jpeg"/><br/>
+                <strong>iphone 11 64G</strong><br/>
+                <del>$26200</del><br>
+                <span class="red">$13200</span><br/>
+                <button class="fancy-button buy" data-name="iPhone11 128G" data-price="13200">購買</button>
+            </div>
+        </div>
+
+
+        <!--======================購物車======================-->
+        <div id="cartPage" class="page">
+            <strong>商品名稱：</strong>
+            <span id="cartName"></span>
+            <br>
+            <strong>商品單價：</strong>
+            <span id="cartPrice"></span>元
+            <br>
+            <input id="cartAmount" class="fancy-input" type="number" placeholder="購買數量"/>
+            <input id="cartPhone" class="fancy-input" type="phone" placeholder="聯絡電話"/>
+            <input id="cartAddress" class="fancy-input" type="text" placeholder="寄送地址"/>
+            <button id="submit" class="fancy-button">送出訂單</button>
+        </div>
+    
+
+        <!--======================訂單資訊======================-->
+        <div id="infoPage" class="page">
+            <input class="fancy-input" type="text" id="orderId" placeholder="訂單編號...">
+            <button class="fancy-button" id="search">訂單查詢</button>
+            <button class="fancy-button" id="cancel">取消訂單</button>
+            <p id="infoList">
+                <strong>訂單編號：</strong>
+                <span id="infoId"></span>
+                <br>
+                <strong>訂單狀態：</strong>
+                <span id="infoStatus"></span>
+                <br>
+                <strong>商品名稱：</strong>
+                <span id="infoName"></span>
+                <br>
+                <strong>訂購數量：</strong>
+                <span id="infoAmount"></span>
+                <br>
+                <strong>訂單價格：</strong>
+                <span id="infoPrice"></span>
+                <br>
+                <strong>聯絡電話：</strong>
+                <span id="infoPhone"></span>
+                <br>
+                <strong>寄送地址：</strong>
+                <span id="infoAddress"></span>
+            </p>
+            <p id="nodata">查無此訂單</p>
+        </div>
+
+
+        <!--======================管理後台======================-->
+        <div id="adminPage" class="page">
+            <button class="fancy-button" id="updateAdminPage">更新訂單列表</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>訂單編號</th>
+                        <th>商品名稱</th>
+                        <th>數量</th>
+                        <th>價格</th>
+                        <th>聯絡電話</th>
+                        <th>地址</th>
+                        <th>狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <hr />
+            <input class="fancy-input" type="text" id="adminOrderId" placeholder="訂單編號">
+            <select class="fancy-input" id="status">
+                <option value="通知店家">通知店家</option>
+                <option value="已出貨">已出貨</option>
+                <option value="配送中">配送中</option>
+                <option value="貨已送達">貨已送達</option>
+            </select>
+            <button class="fancy-button" id="updateOrderStatus">更新訂單狀態</button>
+        </div>
+    </div>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>

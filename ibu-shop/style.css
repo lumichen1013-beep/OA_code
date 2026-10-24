@@ -1,0 +1,182 @@
+/* 設定整個頁面內容水平置中、內寬為 30 像素：*/
+body {
+    text-align: left;
+    padding: 30px;
+}
+
+/* 設定圖片的寬度為銀幕一半寬 */
+img {
+    max-width: 50%;
+}
+
+/* 設定文字的顏色為淡黑色 */
+p {
+    color: #555555;
+}
+
+button {
+    color: white;
+    font-size: 30px;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    text-shadow: 0px 0px 10px white;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+#hello1 {
+    font-size: 20px;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-shadow: 0px 0px 10px white;
+}
+
+#hello1:hover {
+    background-color: blue;
+}
+
+#hello2 {
+    font-size: 20px;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-shadow: 0px 0px 10px white;
+}
+
+#hello2:hover {
+    background-color: blue;
+}
+
+#hello3 {
+    font-size: 20px;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-shadow: 0px 0px 10px white;
+}
+
+#hello3:hover {
+    background-color: blue;
+}
+
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.shoping {
+    width: 660px;
+    height: 990px;
+    margin: auto;
+}
+
+.shoping div {
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px #999;
+    box-shadow: 0px 0px 10px #999;
+    border-radius: 10px;
+    background-color: Orange;
+    
+    /*將div設為正方形大小*/
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+
+    
+    /*透過浮動，使div不會直接換行*/
+    float: left;
+
+    /*設定行高跟正方形一樣高，使字的可以在格子上下位置的中間*/
+    line-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    white-space: normal;
+}
+
+.shoping :hover {
+    background-color: blue;
+}
+
+.things{
+    width: 200px;
+}
+#gohome{
+    color: white;
+    font-size: 20px;
+    margin: 5px auto;
+    border-radius: 2000px;
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+    text-shadow: 0px 0px 10px white;
+}
+
+.hello {
+    background-color: white;
+    width: 300px;
+    border: 5px  solid orange;
+    border-radius: 15px;
+}
+
+#money{
+    color: white;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    text-shadow: 0px 0px 10px white;
+}
+
+.landing{
+    color: white;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 300px;
+    text-shadow: 0px 0px 10px white;
+}
+
+table{
+    color: white;
+    background-color: Orange;
+    border: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+    text-shadow: 0px 0px 10px white;
+}
+
+.click {
+    
+}

@@ -1,0 +1,66 @@
+/* 設定整個頁面內容水平置中、內寬為 30 像素：*/
+body {
+    text-align: center;
+    padding: 30px;
+}
+
+/* 設定圖片的寬度為銀幕一半寬 */
+img {    
+    max-width: 50%; 
+}
+
+/* 設定文字的顏色為淡黑色 */
+
+td{
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    background-color:Orange;
+    border: 10px solid white;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 10px;
+    text-shadow: 0px 0px 10px white;
+}
+table{
+    background-color:white;
+    border: 10px solid Orange;
+    border-radius: 20px;
+    padding: 15px;
+    margin: auto
+
+}
+button{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    background-color:Orange;
+    border: 10px  ;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+    width: 520px;
+    text-shadow: 0px 0px 10px white;
+}
+h1{
+    color: white;
+    font-size: 30px;
+    margin: 10px auto;
+    background-color:Orange;
+    border: 10px  ;
+    border-radius: 20px;
+    padding: 15px;
+    width: 490px;
+    text-shadow: 0px 0px 10px white;
+}
+body {
+    background-image: url(https://www.niusnews.com/upload/imgs/default/2020Apr_CHOU/0427Pokemon/01/80.jpg);
+}
+#btn3{
+    width: 1px;
+    height: 1px;
+    border: 0px;
+    font-size: 1px;
+    margin: 0px auto;
+    padding: 0px;
+}

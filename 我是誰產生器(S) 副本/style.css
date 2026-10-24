@@ -1,0 +1,32 @@
+h1 {
+    font-size: 60px;
+    color: #fff;
+    text-align: left;
+}
+
+
+button {
+    width: 100%;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+    border: 0;
+    border-radius: 15px;
+}
+div{
+    width: 115%;
+    position: relative;
+    left:85%;
+    top: 3%;
+    background-color: #320032;
+}
+body{
+    background-color: #320032;
+    background-image: url(https://i.ytimg.com/vi/zuTJFfMOLe8/maxresdefault.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50vw;
+    height: 90vh;
+}
