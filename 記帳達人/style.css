@@ -121,19 +121,24 @@ h1 {
     width: 100%;
 }
 
+/* 第一行：本月統計、本年統計、全部期間 (強制同一行不換行) */
 .period-btn-group {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
     gap: 6px;
     width: 100%;
 }
 
 .period-btn {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     height: 38px;
     margin-top: 0;
-    padding: 0 6px;
-    font-size: 0.85rem;
+    padding: 0 4px;
+    font-size: 0.82rem;
     font-weight: 500;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #555;
@@ -142,6 +147,8 @@ h1 {
     cursor: pointer;
     transition: all 0.15s ease;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .period-btn:active {
@@ -159,26 +166,35 @@ h1 {
     color: #888;
 }
 
+/* 第二行：第一個年/月/日 和 第二個年/月/日 (強制同一行不換行) */
 .date-input-group {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
     gap: 6px;
     width: 100%;
 }
 
 .date-input-group input[type="date"] {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 0;
     margin-top: 0;
-    height: 36px;
-    font-size: 0.85rem;
-    padding: 4px 6px;
+    height: 38px;
+    font-size: 0.84rem;
+    padding: 2px 4px;
     text-align: center;
-    flex: 1;
+    box-sizing: border-box;
 }
 
 .date-sep {
     color: #888;
     font-size: 0.88rem;
     white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0 2px;
 }
 
 .table-wrap {
