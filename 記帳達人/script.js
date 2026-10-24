@@ -76,11 +76,22 @@ class MobileSQLiteDB {
             read: function (query, callback) {
                 let results = [...self.records];
 
-                // 條件篩選 (例如 { type: '食物' })
+                // 條件篩選 (支援類別、開始日期、結束日期)
                 if (query && typeof query === 'object') {
+                    if (query.type) {
+                        results = results.filter(r => r.type === query.type);
+                    }
+                    if (query.startDate) {
+                        results = results.filter(r => r.date >= query.startDate);
+                    }
+                    if (query.endDate) {
+                        results = results.filter(r => r.date <= query.endDate);
+                    }
                     Object.keys(query).forEach(key => {
-                        if (query[key] !== undefined && query[key] !== '') {
-                            results = results.filter(r => r[key] === query[key]);
+                        if (key !== 'type' && key !== 'startDate' && key !== 'endDate') {
+                            if (query[key] !== undefined && query[key] !== '') {
+                                results = results.filter(r => r[key] === query[key]);
+                            }
                         }
                     });
                 }
@@ -119,6 +130,67 @@ var account = DB.table('account');
 // 當前分類篩選狀態
 var currentCategory = null;
 
+// 重新依當前所有條件（分類 + 日期區間）篩選並更新表格
+function refreshTable() {
+    var query = {};
+    if (currentCategory) {
+        query.type = currentCategory;
+    }
+    var startDate = $('#start-date').val();
+    var endDate = $('#end-date').val();
+
+    if (startDate) {
+        query.startDate = startDate;
+    }
+    if (endDate) {
+        query.endDate = endDate;
+    }
+
+    account.read(query, updateTable);
+}
+
+// 篩選本月統計
+function filterThisMonth() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = String(now.getMonth() + 1).padStart(2, '0');
+    var startDate = `${year}-${month}-01`;
+    var lastDay = new Date(year, now.getMonth() + 1, 0).getDate();
+    var endDate = `${year}-${month}-${String(lastDay).padStart(2, '0')}`;
+
+    $('#start-date').val(startDate);
+    $('#end-date').val(endDate);
+
+    $('.period-btn').removeClass('active');
+    $('#btn-this-month').addClass('active');
+
+    refreshTable();
+}
+
+// 篩選本年統計
+function filterThisYear() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var startDate = `${year}-01-01`;
+    var endDate = `${year}-12-31`;
+
+    $('#start-date').val(startDate);
+    $('#end-date').val(endDate);
+
+    $('.period-btn').removeClass('active');
+    $('#btn-this-year').addClass('active');
+
+    refreshTable();
+}
+
+// 清除日期區間篩選（顯示全部期間）
+function clearDateFilter() {
+    $('#start-date').val('');
+    $('#end-date').val('');
+    $('.period-btn').removeClass('active');
+    refreshTable();
+}
+
 // ========================================================
 // 頁面初始化與事件綁定
 // ========================================================
@@ -133,11 +205,26 @@ $(document).ready(function () {
     // 點擊「圖示」篩選資料
     $('.filter').click(filter);
 
+    // 點擊「本月統計」
+    $('#btn-this-month').click(filterThisMonth);
+
+    // 點擊「本年統計」
+    $('#btn-this-year').click(filterThisYear);
+
+    // 清除日期篩選按鈕（全部期間）
+    $('#btn-clear-date').click(clearDateFilter);
+
+    // 手動變更自訂日期範圍時自動篩選
+    $('#start-date, #end-date').on('change', function () {
+        $('.period-btn').removeClass('active');
+        refreshTable();
+    });
+
     // 點擊「炸彈」清空所有資料
     $('#bumb').click(bumb);
 
     // 預設查詢所有資料並更新至表格
-    account.read({}, updateTable);
+    refreshTable();
 });
 
 // 新增一筆記帳紀錄到資料表並更新畫面
@@ -171,8 +258,7 @@ function create() {
     $('#note').val('');
 
     // 重新依當前篩選狀態查詢並更新畫面
-    var query = currentCategory ? { type: currentCategory } : {};
-    account.read(query, updateTable);
+    refreshTable();
 }
 
 // 將查詢的記帳紀錄 data 更新至畫面上
@@ -231,14 +317,13 @@ function filter() {
         // 再次點擊相同類別，取消篩選顯示全部
         currentCategory = null;
         $('.icon').removeClass('active');
-        account.read({}, updateTable);
     } else {
         // 設定篩選類別
         currentCategory = selectedType;
         $('.icon').removeClass('active');
         $(this).addClass('active');
-        account.read({ type: selectedType }, updateTable);
     }
+    refreshTable();
 }
 
 // ========================================================
@@ -271,8 +356,7 @@ function deleteScore(id) {
         '是否確定要刪除這筆紀錄？',
         function () {
             account.delete({ id: id });
-            var query = currentCategory ? { type: currentCategory } : {};
-            account.read(query, updateTable);
+            refreshTable();
         },
         function () {
             alert('沒事別亂點');
@@ -315,7 +399,10 @@ function bumb() {
                     account.delete({});
                     currentCategory = null;
                     $('.icon').removeClass('active');
-                    account.read({}, updateTable);
+                    $('.period-btn').removeClass('active');
+                    $('#start-date').val('');
+                    $('#end-date').val('');
+                    refreshTable();
 
                     // 移除行內樣式，還原炸彈原本位置
                     $el.removeAttr('style');

@@ -110,6 +110,77 @@ h1 {
     transform: scale(1.08);
 }
 
+/* 日期區間與月份/年度統計篩選 */
+.date-filter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0 14px;
+    width: 100%;
+}
+
+.period-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.period-btn {
+    flex: 1;
+    height: 38px;
+    margin-top: 0;
+    padding: 0 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #555;
+    color: #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.period-btn:active {
+    transform: scale(0.97);
+}
+
+.period-btn.active {
+    background-color: rgba(52, 235, 161, 0.2);
+    border-color: rgb(52, 235, 161);
+    color: rgb(52, 235, 161);
+    font-weight: bold;
+}
+
+.period-btn.clear {
+    color: #888;
+}
+
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.date-input-group input[type="date"] {
+    margin-top: 0;
+    height: 36px;
+    font-size: 0.85rem;
+    padding: 4px 6px;
+    text-align: center;
+    flex: 1;
+}
+
+.date-sep {
+    color: #888;
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
 .table-wrap {
     width: 100%;
     overflow-x: auto;

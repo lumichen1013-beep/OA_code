@@ -40,6 +40,23 @@
             <span class="icon filter" data-type="娛樂" title="娛樂"> 🎮 </span>
         </div>
         
+        <!-- 日期區間與月份/年度統計 -->
+        <div class="date-filter-box">
+            <!-- 月統計 / 年統計 / 全部 按鈕組 -->
+            <div class="period-btn-group">
+                <button id="btn-this-month" class="period-btn" type="button">📅 本月統計</button>
+                <button id="btn-this-year" class="period-btn" type="button">📊 本年統計</button>
+                <button id="btn-clear-date" class="period-btn clear" type="button">全部期間</button>
+            </div>
+            
+            <!-- 自訂日期區間選擇 -->
+            <div class="date-input-group">
+                <input type="date" id="start-date" title="開始日期">
+                <span class="date-sep">至</span>
+                <input type="date" id="end-date" title="結束日期">
+            </div>
+        </div>
+        
         <!-- 表格 -->
         <div class="table-wrap">
             <table>
