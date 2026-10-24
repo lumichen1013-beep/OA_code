@@ -4,25 +4,23 @@
 class MobileSQLiteDB {
     constructor() {
         this.storageKey = 'mobile_accounting_sqlite_records';
-        this.records = this.loadRecords();
-        this.nextId = this.records.length > 0 
-            ? Math.max(...this.records.map(r => Number(r.id) || 0)) + 1 
-            : 1;
+        const rawData = localStorage.getItem(this.storageKey);
 
-        // 若初次開啟且無資料，匯入預設範例資料
-        if (this.records.length === 0) {
+        if (rawData === null) {
+            // 只有在「初次造訪」（從未建立過資料庫）時才載入預設項目
+            this.records = [];
+            this.nextId = 1;
             this.initDefaultRecords();
-        }
-    }
-
-    // 從手機端 localStorage 載入資料
-    loadRecords() {
-        try {
-            const data = localStorage.getItem(this.storageKey);
-            return data ? JSON.parse(data) : [];
-        } catch (e) {
-            console.error('載入本機資料失敗:', e);
-            return [];
+        } else {
+            // 使用者已經使用過，即使資料已清空為 0 筆，也不再重新注入預設資料
+            try {
+                this.records = JSON.parse(rawData) || [];
+            } catch (e) {
+                this.records = [];
+            }
+            this.nextId = this.records.length > 0
+                ? Math.max(...this.records.map(r => Number(r.id) || 0)) + 1
+                : 1;
         }
     }
 
@@ -61,7 +59,7 @@ class MobileSQLiteDB {
         const self = this;
         return {
             // 新增 (SQL: INSERT INTO accounts ...)
-            create: function(item) {
+            create: function (item) {
                 const record = {
                     id: String(self.nextId++),
                     type: item.type,
@@ -75,7 +73,7 @@ class MobileSQLiteDB {
             },
 
             // 查詢 (SQL: SELECT * FROM accounts WHERE ... ORDER BY date DESC, id DESC)
-            read: function(query, callback) {
+            read: function (query, callback) {
                 let results = [...self.records];
 
                 // 條件篩選 (例如 { type: '食物' })
@@ -100,7 +98,7 @@ class MobileSQLiteDB {
             },
 
             // 刪除 (SQL: DELETE FROM accounts WHERE id = ? 或全部刪除)
-            delete: function(query) {
+            delete: function (query) {
                 if (query && query.id !== undefined) {
                     self.records = self.records.filter(r => String(r.id) !== String(query.id));
                 } else {
@@ -143,7 +141,7 @@ $(document).ready(function () {
 });
 
 // 新增一筆記帳紀錄到資料表並更新畫面
-function create () {
+function create() {
     var type = $('#type').val();
     var date = $('#date').val();
     var cost = $('#cost').val();
@@ -153,7 +151,7 @@ function create () {
         alert('日期忘記填了喔');
         $('#date').focus();
         return;
-    } 
+    }
     if (cost == '' || Number(cost) <= 0) {
         alert('價錢忘記填了喔 (請輸入大於0的金額)');
         $('#cost').focus();
@@ -162,10 +160,10 @@ function create () {
 
     // 寫入手機端資料庫
     account.create({
-        type : type,
-        date : date,
-        cost : cost,
-        note : note
+        type: type,
+        date: date,
+        cost: cost,
+        note: note
     });
 
     // 清空輸入欄位
@@ -178,7 +176,7 @@ function create () {
 }
 
 // 將查詢的記帳紀錄 data 更新至畫面上
-function updateTable (data) {
+function updateTable(data) {
     var total = 0;
     $('tbody').empty();
 
@@ -188,7 +186,7 @@ function updateTable (data) {
         return;
     }
 
-    data.forEach(function(item){
+    data.forEach(function (item) {
         var i = Number(item.cost) || 0;
         var row = `
         <tr data-id="${item.id}">
@@ -208,7 +206,7 @@ function updateTable (data) {
 }
 
 // 將類型的字串轉換成 emoji 符號
-function typeToEmoji (type) {
+function typeToEmoji(type) {
     if (type == '食物') {
         return '🍖';
     } else if (type == '生活') {
@@ -226,7 +224,7 @@ function typeToEmoji (type) {
 }
 
 // 依據類型查詢所有資料並更新至表格（點擊可切換過濾／取消過濾）
-function filter () {
+function filter() {
     var selectedType = $(this).data('type');
 
     if (currentCategory === selectedType) {
@@ -243,49 +241,89 @@ function filter () {
     }
 }
 
-// 刪除單筆紀錄
-function deleteScore(id) {
-    var d = prompt('確定刪除?(y or n)');
-    if ((d || '').toLowerCase() === 'y') {
-        account.delete({ id: id });
-        var query = currentCategory ? { type: currentCategory } : {};
-        account.read(query, updateTable);
-    } else {
-        alert('沒事別亂點');
-    }
+// ========================================================
+// 現代觸控確認視窗 (完全取代 prompt / confirm，不被瀏覽器封鎖)
+// ========================================================
+function showConfirm(message, onConfirm, onCancel) {
+    $('#modal-msg').text(message);
+    $('#confirm-modal').fadeIn(120);
+
+    // 綁定「確定」按鈕
+    $('#modal-ok').off('click').on('click', function () {
+        $('#confirm-modal').fadeOut(120);
+        if (typeof onConfirm === 'function') {
+            onConfirm();
+        }
+    });
+
+    // 綁定「取消」按鈕
+    $('#modal-cancel').off('click').on('click', function () {
+        $('#confirm-modal').fadeOut(120);
+        if (typeof onCancel === 'function') {
+            onCancel();
+        }
+    });
 }
 
-// 炸彈清空全部（保留原始放大動畫彩蛋）
-function bumb () {
-    var d = prompt('確定刪除全部?(y or n)');
+// 刪除單筆紀錄
+function deleteScore(id) {
+    showConfirm(
+        '是否確定要刪除這筆紀錄？',
+        function () {
+            account.delete({ id: id });
+            var query = currentCategory ? { type: currentCategory } : {};
+            account.read(query, updateTable);
+        },
+        function () {
+            alert('沒事別亂點');
+        }
+    );
+}
+window.deleteScore = deleteScore;
 
-    if ((d || '').toLowerCase() === 'y') {
-        const $el = $('#bumb');
-        if ($el.length === 0) return;
+// 炸彈清空全部（保留原始放大動畫彩蛋，固定在螢幕正中央）
+function bumb() {
+    showConfirm(
+        '⚠️ 是否確定要清空全部記帳紀錄？',
+        function () {
+            const $el = $('#bumb');
+            if ($el.length === 0) return;
 
-        let s = 16; // 起始字體大小（px）
-        $el.css({ position: 'relative', zIndex: 9999 });
+            let s = 24; // 起始字體大小（px）
+            $el.css({
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 9999,
+                width: 'auto',
+                height: 'auto',
+                lineHeight: '1',
+                margin: '0',
+                textAlign: 'center',
+                pointerEvents: 'none'
+            });
 
-        const timer = setInterval(function () {
-            $el.css('font-size', s + 'px');
-            s += 4;
+            const timer = setInterval(function () {
+                $el.css('font-size', s + 'px');
+                s += 8;
 
-            if (s >= 500) {
-                clearInterval(timer);
+                if (s >= 400) {
+                    clearInterval(timer);
 
-                // 動畫完成後清空資料庫
-                account.delete({});
-                currentCategory = null;
-                $('.icon').removeClass('active');
-                account.read({}, updateTable);
+                    // 動畫完成後清空資料庫
+                    account.delete({});
+                    currentCategory = null;
+                    $('.icon').removeClass('active');
+                    account.read({}, updateTable);
 
-                // 重設炸彈大小與樣式
-                $el.css({ 'font-size': '1.3rem', position: 'static' });
-                alert('💥 資料庫已全部清空！');
-            }
-        }, 10);
-
-    } else {
-        alert('沒事別亂點');
-    }
+                    // 移除行內樣式，還原炸彈原本位置
+                    $el.removeAttr('style');
+                }
+            }, 12);
+        },
+        function () {
+            alert('沒事別亂點');
+        }
+    );
 }

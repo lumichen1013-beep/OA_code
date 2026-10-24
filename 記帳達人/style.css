@@ -170,3 +170,79 @@ button:active, select:focus, input:focus, .icon:active {
     color: rgb(52, 235, 161);
     border-color: rgb(52, 235, 161);
 }
+
+/* 自訂確認視窗 (Modal Dialog) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+    backdrop-filter: blur(2px);
+}
+
+.modal-box {
+    background-color: rgb(30, 38, 50);
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 22px 20px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    animation: modalPop 0.18s ease-out;
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-box p {
+    margin: 0 0 20px 0;
+    font-size: 1.05rem;
+    color: #eee;
+    line-height: 1.5;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-btns button {
+    margin-top: 0;
+    height: 42px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+.btn-modal.cancel {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #666;
+    color: #ccc;
+}
+
+.btn-modal.cancel:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-modal.confirm {
+    background-color: #e54d42;
+    border-color: #e54d42;
+    color: #fff;
+}
+
+.btn-modal.confirm:active {
+    background-color: #c93b32;
+}
+

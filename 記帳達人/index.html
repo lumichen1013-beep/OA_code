@@ -63,6 +63,17 @@
         <button id="bumb">💣</button>
     </div>
 
+    <!-- 自訂確認視窗 (支援手機與所有瀏覽器，不怕原生 confirm 被封鎖) -->
+    <div id="confirm-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <p id="modal-msg">確定要刪除這筆紀錄嗎？</p>
+            <div class="modal-btns">
+                <button id="modal-cancel" class="btn-modal cancel">取消</button>
+                <button id="modal-ok" class="btn-modal confirm">確定</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js" charset="utf-8"></script>
 </body>
 </html>
