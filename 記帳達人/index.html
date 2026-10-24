@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>記帳本</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 新增資料輸入區 -->
+        <div>
+            <select id="type">
+                <option value="食物"> 🍖 食物 </option>
+                <option value="衣服"> 👕 衣服 </option>
+                <option value="生活"> 🏠 生活 </option>
+                <option value="交通"> 🚌 交通 </option>
+                <option value="學習"> 📖 學習 </option>
+                <option value="娛樂"> 🎮 娛樂 </option>
+            </select>
+            <input type="date" id="date">
+            <input type="number" id="cost" placeholder="價格" inputmode="numeric">
+            <input type="text" id="note" placeholder="註記">
+            <button id="create">新增</button>
+        </div>
+        
+        <!-- 總和 -->
+        <h1>
+            總和 <span id="sum">0</span> 元
+        </h1>
+        
+        <!-- 分類過濾 -->
+        <div class="filter-bar">
+            <span class="icon filter" data-type="食物" title="食物"> 🍖 </span>
+            <span class="icon filter" data-type="衣服" title="衣服"> 👕 </span>
+            <span class="icon filter" data-type="生活" title="生活"> 🏠 </span>
+            <span class="icon filter" data-type="交通" title="交通"> 🚌 </span>
+            <span class="icon filter" data-type="學習" title="學習"> 📖 </span>
+            <span class="icon filter" data-type="娛樂" title="娛樂"> 🎮 </span>
+        </div>
+        
+        <!-- 表格 -->
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">圖示</th>
+                        <th style="width: 18%;">種類</th>
+                        <th style="width: 24%;">日期</th>
+                        <th style="width: 18%;">花費</th>
+                        <th style="width: 22%;">註記</th>
+                        <th style="width: 14%;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 由資料庫動態載入 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 炸彈清空 -->
+        <button id="bumb">💣</button>
+    </div>
+
+    <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
